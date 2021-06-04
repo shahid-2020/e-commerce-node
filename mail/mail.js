@@ -2,7 +2,7 @@ const mail = require('@sendgrid/mail');
 
 class Mail {
   constructor(_mail) {
-    this._mail = [_mail];
+    this._mail = _mail;
     this._mail.setApiKey(process.env.MAIL_API_KEY);
     this._from = {
       name: 'E-commerce-node',
