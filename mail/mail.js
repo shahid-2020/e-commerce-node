@@ -13,7 +13,7 @@ class Mail {
 
   async sendResetPasswordMail(email, uri) {
     const msg = {
-      from: this._from,
+      from: this._from.email,
       to: email,
       subject: `password reset request`,
       html: `<!DOCTYPE html>
@@ -42,7 +42,6 @@ class Mail {
             </html>`,
     };
     await this._mail.send(msg);
-    return true;
   }
 }
 
