@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const morgan = require('morgan');
+const compression = require('compression');
 
 const mongoose = require('./db/mongoose');
 const redis = require('./db/redis');
@@ -39,6 +40,7 @@ app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 app.use(xss());
 app.use(mongoSanitize());
 app.use(hpp({ whitelist: [] }));
+app.use(compression());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
